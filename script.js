@@ -52,8 +52,8 @@ const KB = {
   },
 
   outage: {
-    say: ["A fault light usually points upstream. Let me check the network before we take anything apart."],
-    input: { placeholder: "Enter your postcode", button: "Check network", handler: "outage" }
+    say: ["A fault light usually points upstream. Let me check the network before we take anything apart. Enter your zipcode."],
+    input: { placeholder: "Enter your zipcode", button: "Check network", handler: "outage" }
   },
 
   outage_yes: {
