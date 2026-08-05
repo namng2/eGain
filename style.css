@@ -1,0 +1,134 @@
+:root {
+  --ink: #0E1626;
+  --ink-2: #162034;
+  --line-dk: #293650;
+  --paper: #EEF1F5;
+  --card: #FFFFFF;
+  --line: #D2D8E2;
+  --teal: #0B6E6E;
+  --teal-lt: #0F8A8A;
+  --amber: #B5730F;
+  --coral: #C4453D;
+  --mint: #12855C;
+  --slate: #5B6779;
+}
+
+* { box-sizing: border-box }
+html, body { height: 100%; margin: 0 }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none }
+:focus-visible { outline: 2px solid var(--teal-lt); outline-offset: 2px }
+
+
+.app { height: 100dvh; display: grid; grid-template-rows: auto 1fr }
+.app > header {
+  padding: 12px 20px;
+  background: var(--ink); color: #fff;
+  display: flex; align-items: center; gap: 10px;
+}
+.app > header h1 { margin: 0; font-size: 14px; font-weight: 600 }
+.dot { width: 14px; height: 14px; border-radius: 50%; background: var(--teal-lt); flex: none }
+
+main { display: grid; grid-template-columns: 1fr; min-height: 0 }
+
+
+.chat { display: flex; flex-direction: column; min-height: 0 }
+.stream {
+  flex: 1; overflow-y: auto;
+  padding: 22px 20px 4px;
+  scroll-behavior: smooth;
+}
+.stream > * { max-width: 560px; margin: 0 auto 12px }
+
+.msg { display: flex; gap: 10px; animation: in .28s ease both }
+.msg.you { flex-direction: row-reverse }
+.av {
+  width: 24px; height: 24px; border-radius: 6px; flex: none; margin-top: 2px;
+  background: var(--teal); color: #fff;
+  display: grid; place-items: center;
+  font-size: 10px; font-weight: 700;
+}
+.msg.you .av { background: var(--ink) }
+.bub {
+  background: var(--card);
+  border: 1px solid var(--line); border-radius: 10px;
+  padding: 10px 13px; line-height: 1.5;
+}
+.msg.you .bub { background: var(--ink); color: #fff; border-color: var(--ink) }
+.bub.warn { border-color: var(--coral); background: #FDF3F2 }
+
+.steps {
+  background: var(--card);
+  border: 1px solid var(--line); border-left: 3px solid var(--teal);
+  border-radius: 10px; padding: 12px 14px;
+}
+.steps h4 {
+  margin: 0 0 8px;
+  font-size: 10.5px; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--teal); font-weight: 600;
+}
+.steps ol { margin: 0; padding: 0; list-style: none; counter-reset: s }
+.steps li {
+  counter-increment: s; position: relative;
+  padding-left: 26px; margin-bottom: 6px;
+  font-size: 14px; line-height: 1.45;
+}
+.steps li:last-child { margin-bottom: 0 }
+.steps li::before {
+  content: counter(s, decimal-leading-zero);
+  position: absolute; left: 0; top: 1px;
+  font: 11px ui-monospace, SFMono-Regular, monospace;
+  color: var(--slate);
+}
+
+.dots { display: flex; gap: 4px; padding: 12px }
+.dots i {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--slate); opacity: .45;
+  animation: pulse 1.1s infinite;
+}
+.dots i:nth-child(2) { animation-delay: .15s }
+.dots i:nth-child(3) { animation-delay: .3s }
+
+
+.rail {
+  padding: 12px 20px 16px;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+.rail > * { max-width: 560px; margin: 0 auto }
+
+.opts { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 10px }
+.opt {
+  background: var(--card);
+  border: 1px solid var(--line); border-radius: 9px;
+  padding: 9px 13px; font-size: 14px; text-align: left;
+  transition: border-color .12s, background .12s;
+}
+.opt:hover { border-color: var(--teal); background: #F6FBFB }
+.opt.skip { background: transparent; border-style: dashed; color: var(--slate) }
+.opt.warm { border-color: #E2C9A0; background: #FDF7EC }
+.opt.go { background: var(--teal); border-color: var(--teal); color: #fff; font-weight: 500 }
+.opt.go:hover { background: var(--teal-lt) }
+
+.entry { display: flex; gap: 7px }
+.entry input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--line); border-radius: 9px;
+  font: inherit; font-size: 16px; background: var(--card);
+}
+.entry input:focus {
+  outline: 2px solid var(--teal); outline-offset: -1px;
+  border-color: var(--teal);
+}
+
+@keyframes in { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
+@keyframes pulse { 0%, 60%, 100% { transform: translateY(0) } 30% { transform: translateY(-4px) } }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important } }
