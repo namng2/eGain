@@ -112,3 +112,9 @@ The chatbot does not continue asking questions once troubleshooting is no longer
 
 ### Edge Case, request to cancel contract
 ![alt text](Example/image-3.png)
+
+### Edge Case, slow connection, user give negative value of speed
+![alt text](Example/image-4.png)
+
+### Sucessful trouble shooting
+![alt text](Example/image-5.png)
