@@ -102,13 +102,13 @@ The chatbot does not continue asking questions once troubleshooting is no longer
 ## Screenshots Example
 
 ### Can't joint Wifi, password is incorrect
-![alt text](image.png)
+![alt text](Example/image.png)
 
 ### Area outage
-![alt text](image-1.png)
+![alt text](Example/image-1.png)
 
 ### Giving trouble shoot tip, connect to agent when repeartly fail
-![alt text](image-2.png)
+![alt text](Example/image-2.png)
 
 ### Edge Case, request to cancel contract
-![alt text](image-3.png)
+![alt text](Example/image-3.png)
